@@ -4,3 +4,7 @@ prepared = "data/prepared"
 
 [data.sources]
 instagram = "/mnt/barracuda/social_media_dumps/instagram_dave_holds_himself_accountable"
+
+[clean.out]
+instagram_posts = "data/cleaned/posts.csv"
+instagram_pictures = "data/cleaned/pictures.csv"
