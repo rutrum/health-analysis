@@ -8,3 +8,6 @@ instagram = "/mnt/barracuda/social_media_dumps/instagram_dave_holds_himself_acco
 [clean.out]
 instagram_posts = "data/cleaned/posts.csv"
 instagram_pictures = "data/cleaned/pictures.csv"
+
+[prepare.out]
+sqlite = "data/prepared/data.db"
