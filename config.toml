@@ -1,0 +1,6 @@
+[data]
+cleaned = "data/cleaned"
+prepared = "data/prepared"
+
+[data.sources]
+instagram = "/mnt/barracuda/social_media_dumps/instagram_dave_holds_himself_accountable"
