@@ -1,5 +1,6 @@
 [data]
 cleaned = "data/cleaned"
+extended = "data/extended"
 prepared = "data/prepared"
 
 [data.sources]
@@ -10,6 +11,13 @@ weights = "/mnt/barracuda/data/weights.ods"
 instagram_posts = "data/cleaned/posts.csv"
 instagram_pictures = "data/cleaned/pictures.csv"
 weights = "data/cleaned/weights.csv"
+
+[extended]
+meals = "data/extended/meals.csv"
+meals_posts = "data/extended/meals_posts.csv"
+
+[extend]
+meal_range_minutes = 60
 
 [prepare.out]
 sqlite = "data/prepared/data.db"

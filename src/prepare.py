@@ -20,6 +20,12 @@ def main():
     weights = pd.read_csv(config["clean"]["out"]["weights"])
     weights.to_sql(name="weight", con=conn, index=False)
 
+    meals = pd.read_csv(config["extended"]["meals"])
+    meals.to_sql(name="meals", con=conn, index=False)
+
+    meals_posts = pd.read_csv(config["extended"]["meals_posts"])
+    meals_posts.to_sql(name="meals_posts", con=conn, index=False)
+
     to_write = sqlite3.connect(config["prepare"]["out"]["sqlite"])
     conn.backup(to_write)
 

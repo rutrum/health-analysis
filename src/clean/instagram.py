@@ -81,6 +81,8 @@ def main():
 
     posts, pictures = parse_posts(posts_raw)
 
+    posts = posts.sort_values("timestamp")
+
     posts.to_csv(config["clean"]["out"]["instagram_posts"], index=False)
     pictures.to_csv(config["clean"]["out"]["instagram_pictures"], index=False)
 
