@@ -18,3 +18,20 @@ This project is the initiative to
 ## Data Pipeline
 
 The raw data will be stored in a location on my machine outside of this repository.  The location of these raw data sources will be listed in the `data_sources` table in the `config.toml` file.  Each type of data will be pulled into a directory defined as `cleaned` after going through a transformation to simplify the data format and filter unnecessary data.  Then the data will be pulled into a directory defined as `prepared` which will contain the final form the data, after all cleaning and joining of different datasets.  Any intermediate output will also sit inside the `cleaned` directory.  Scripts that pull raw data into the `cleaned` directory will be stored in directory defined as `clean`.  Likewise for `prepared` the scripts will sit in `prepare`.
+
+## Data Visualization
+
+The goal is to make a dashboard.  I'm going to experiment with some new technology, maybe.
+
+* tabler: a library that can be integrated into an html file to designing a dashboard
+* apexcharts: a plugin for tabler that makes charts, similar to plotly
+
+Unforunately these all are intended for integration into larger web frameworks.  I don't want to dive into that so I'm going to use the most basic templating engine: mustache.
+
+* mustache: a dead simple templating engine...template + config => output
+
+But to be extra difficult I want to still write in toml so
+
+* yj: a converter for json/toml/yaml
+
+I create a config in toml and a template file with preprogrammed charts.  But I guess they need data pulled from sqlite dont they?  Then there needs to be more preprocessing anyway, why don't I just use plotly and dash?  yeah, this might be too complicated
