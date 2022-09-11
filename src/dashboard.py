@@ -46,7 +46,10 @@ def main():
         fig = make_subplots(specs=[[{"secondary_y": True}]])
 
         fig.add_trace(
-            go.Scatter(x=df["date"], y=df["interpolated_weight"], name="Weight")
+            go.Scatter(x=df["date"], y=df["interpolated_weight"], name="Weight (Interpolated)")
+        )
+        fig.add_trace(
+            go.Scatter(x=df["date"], y=df["weight"], name="Weight", visible='legendonly')
         )
 
         fig.add_trace(
