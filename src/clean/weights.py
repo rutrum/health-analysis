@@ -1,6 +1,7 @@
 import toml
 import subprocess
 import pandas as pd
+from datetime import datetime
 
 def load_config():
     with open("config.toml") as f:
@@ -28,6 +29,9 @@ def main():
     csv_path = convert_ods(ods_path)
 
     df = pd.read_csv(csv_path, names=["date", "weight", "comment"])
+
+    df["date"] = pd.to_datetime(df["date"]).map(pd.Timestamp.timestamp)
+
     df.to_csv(config["clean"]["out"]["weights"], index=False)
 
 

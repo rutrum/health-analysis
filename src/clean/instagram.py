@@ -11,10 +11,9 @@ def load_posts(path):
     with open(f"{path}/content/posts_1.json") as f:
         return json.load(f)
 
-def into_iso(seconds):
-    """ format seconds into YYYY-MM-DD HH:MM:SS.SSS """
+def into_unix(seconds):
     dt = datetime.fromtimestamp(seconds)
-    return dt.isoformat().replace("T", " ")
+    return dt.timestamp()
 
 def parse_posts(posts_raw):
     """
@@ -37,7 +36,7 @@ def parse_posts(posts_raw):
 
             new_post = {
                 "id": post_id,
-                "timestamp": into_iso(post["creation_timestamp"]),
+                "timestamp": into_unix(post["creation_timestamp"]),
                 "caption": post["title"],
             }
             posts.append(new_post)
@@ -54,7 +53,7 @@ def parse_posts(posts_raw):
             # Multi-image post
             new_post = {
                 "id": post_id,
-                "timestamp": into_iso(post["creation_timestamp"]),
+                "timestamp": into_unix(post["creation_timestamp"]),
                 "caption": post["title"],
             }
             posts.append(new_post)

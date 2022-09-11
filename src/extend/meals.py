@@ -19,11 +19,11 @@ def build_meals(posts, meal_range_minutes):
         b = posts.loc[i + 1]
 
         if last_meal["time_started"] == "":
-            last_meal["time_started"] = str(a["timestamp"])
+            last_meal["time_started"] = a["timestamp"]
             last_meal["post_ids"].append(a["id"])
 
         d = b["timestamp"] - a["timestamp"]
-        total_minutes = d.total_seconds() / 60
+        total_minutes = d / 60
 
         if total_minutes < meal_range_minutes:
             last_meal["post_ids"].append(b["id"])
@@ -66,8 +66,6 @@ def main():
     config = load_config()
 
     posts = pd.read_csv(config["clean"]["out"]["instagram_posts"])
-
-    posts["timestamp"] = pd.to_datetime(posts["timestamp"])
 
     meals = build_meals(posts, config["extend"]["meal_range_minutes"])
     meals, meals_posts = split_meals(meals)
