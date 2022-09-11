@@ -2,7 +2,6 @@ all:
     just clean
     just extend
     just prepare
-    just explore
 
 clean:
     python3 src/clean/instagram.py
@@ -10,6 +9,7 @@ clean:
 
 extend:
     python3 src/extend/meals.py
+    python3 src/extend/interpolated_weights.py
 
 prepare:
     python3 src/prepare/prepare.py

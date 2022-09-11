@@ -43,7 +43,7 @@ These are existing data sources that need to be digitized or scraped, and cleane
 This is information that needs to be generated or calculated from existing data sources.
 
 - [ ] Meals (photos of food taken within a time interval)
-- [ ] Interpolate weight values
+- [x] Interpolate weight values
 - [ ] Average weight across days
 - [ ] Clean labels of instagram posts
 - [ ] Food classification (desert, bread, meat, vegetables, etc)

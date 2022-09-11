@@ -10,6 +10,7 @@ weights = "data/cleaned/weights.csv"
 [extended]
 meals = "data/extended/meals.csv"
 meals_posts = "data/extended/meals_posts.csv"
+interpolated_weights = "data/extended/interpolated_weights.csv"
 
 [extend]
 meal_range_minutes = 60

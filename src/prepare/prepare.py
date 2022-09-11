@@ -21,7 +21,7 @@ def main():
     posts = pd.read_csv(config["cleaned"]["instagram_pictures"])
     posts.to_sql(name="picture", con=conn, index=False)
 
-    weights = pd.read_csv(config["cleaned"]["weights"])
+    weights = pd.read_csv(config["extended"]["interpolated_weights"])
     weights.to_sql(name="weight", con=conn, index=False)
 
     meals = pd.read_csv(config["extended"]["meals"])
