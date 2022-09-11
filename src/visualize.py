@@ -3,6 +3,8 @@ import plotly.express as px
 import pandas as pd
 import toml
 import sqlite3
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 app = Dash(__name__)
 
@@ -25,7 +27,10 @@ def main():
     conn = sqlite3.connect(config["prepare"]["out"]["sqlite"])
     weight = pd.read_sql("""
         select *, date(meals.timestamp, 'unixepoch') as date_formatted from weight
-        join meals
+        join (
+            select * from meals
+            group by date(timestamp, 'unixepoch')
+        ) as meals
         where date(meals.timestamp, 'unixepoch') == date(weight.date, 'unixepoch')
     """, con=conn)
 
@@ -40,12 +45,21 @@ def main():
         Input("date_picker", "end_date"),
     )
     def update_weight_over_time(start_date, end_date):
-        filtered = weight
+        df = weight
         if start_date and end_date:
-            filtered = weight[weight.date_formatted < end_date]
-            filtered = filtered[weight.date_formatted > start_date]
-        fig = px.line(filtered, x="date_formatted", y="weight", markers=True)
-        fig.add_bar(x=filtered["date_formatted"], y=filtered["total_posts"])
+            df = weight[weight.date_formatted < end_date]
+            df = df[weight.date_formatted > start_date]
+
+        fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+        fig.add_trace(
+            go.Scatter(x=df["date_formatted"], y=df["weight"], name="Weight")
+        )
+
+        fig.add_trace(
+            go.Bar(x=df["date_formatted"], y=df["total_posts"], name="Total Posts"),
+            secondary_y = True,
+        )
 
         return fig
 
