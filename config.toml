@@ -16,3 +16,6 @@ meal_range_minutes = 60
 
 [prepared]
 sqlite = "data/prepared/data.db"
+
+[prepare]
+sql = "src/prepare/sql"
