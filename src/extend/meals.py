@@ -65,7 +65,7 @@ def split_meals(meals):
 def main():
     config = load_config()
 
-    posts = pd.read_csv(config["clean"]["out"]["instagram_posts"])
+    posts = pd.read_csv(config["cleaned"]["instagram_posts"])
 
     meals = build_meals(posts, config["extend"]["meal_range_minutes"])
     meals, meals_posts = split_meals(meals)

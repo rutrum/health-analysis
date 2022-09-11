@@ -1,13 +1,8 @@
-[data]
-cleaned = "data/cleaned"
-extended = "data/extended"
-prepared = "data/prepared"
-
-[data.sources]
+[sources]
 instagram = "/mnt/barracuda/social_media_dumps/instagram_dave_holds_himself_accountable"
 weights = "/mnt/barracuda/data/weights.ods"
 
-[clean.out]
+[cleaned]
 instagram_posts = "data/cleaned/posts.csv"
 instagram_pictures = "data/cleaned/pictures.csv"
 weights = "data/cleaned/weights.csv"
@@ -19,5 +14,5 @@ meals_posts = "data/extended/meals_posts.csv"
 [extend]
 meal_range_minutes = 60
 
-[prepare.out]
+[prepared]
 sqlite = "data/prepared/data.db"

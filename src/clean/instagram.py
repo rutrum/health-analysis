@@ -74,7 +74,7 @@ def parse_posts(posts_raw):
 def main():
     config = load_config()
 
-    instagram_path = config["data"]["sources"]["instagram"]
+    instagram_path = config["sources"]["instagram"]
 
     posts_raw = load_posts(instagram_path)
 
@@ -82,8 +82,8 @@ def main():
 
     posts = posts.sort_values("timestamp")
 
-    posts.to_csv(config["clean"]["out"]["instagram_posts"], index=False)
-    pictures.to_csv(config["clean"]["out"]["instagram_pictures"], index=False)
+    posts.to_csv(config["cleaned"]["instagram_posts"], index=False)
+    pictures.to_csv(config["cleaned"]["instagram_pictures"], index=False)
 
 if __name__ == "__main__":
     main()

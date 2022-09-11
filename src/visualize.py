@@ -24,7 +24,7 @@ def date_range(df):
 def main():
     config = load_config()
 
-    conn = sqlite3.connect(config["prepare"]["out"]["sqlite"])
+    conn = sqlite3.connect(config["prepared"]["sqlite"])
     weight = pd.read_sql("""
         select *, date(meals.timestamp, 'unixepoch') as date_formatted from weight
         join (

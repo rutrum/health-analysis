@@ -25,14 +25,14 @@ def convert_ods(path):
 def main():
     config = load_config()
 
-    ods_path = config["data"]["sources"]["weights"]
+    ods_path = config["sources"]["weights"]
     csv_path = convert_ods(ods_path)
 
     df = pd.read_csv(csv_path, names=["date", "weight", "comment"])
 
     df["date"] = pd.to_datetime(df["date"]).map(pd.Timestamp.timestamp)
 
-    df.to_csv(config["clean"]["out"]["weights"], index=False)
+    df.to_csv(config["cleaned"]["weights"], index=False)
 
 
 if __name__ == "__main__":

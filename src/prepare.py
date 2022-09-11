@@ -11,13 +11,13 @@ def main():
 
     conn = sqlite3.connect(":memory:")
 
-    posts = pd.read_csv(config["clean"]["out"]["instagram_posts"])
+    posts = pd.read_csv(config["cleaned"]["instagram_posts"])
     posts.to_sql(name="post", con=conn, index=False)
 
-    posts = pd.read_csv(config["clean"]["out"]["instagram_pictures"])
+    posts = pd.read_csv(config["cleaned"]["instagram_pictures"])
     posts.to_sql(name="picture", con=conn, index=False)
 
-    weights = pd.read_csv(config["clean"]["out"]["weights"])
+    weights = pd.read_csv(config["cleaned"]["weights"])
     weights.to_sql(name="weight", con=conn, index=False)
 
     meals = pd.read_csv(config["extended"]["meals"])
@@ -26,7 +26,7 @@ def main():
     meals_posts = pd.read_csv(config["extended"]["meals_posts"])
     meals_posts.to_sql(name="meals_posts", con=conn, index=False)
 
-    to_write = sqlite3.connect(config["prepare"]["out"]["sqlite"])
+    to_write = sqlite3.connect(config["prepared"]["sqlite"])
     conn.backup(to_write)
 
 
