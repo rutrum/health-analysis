@@ -1,25 +1,19 @@
 # Health Analysis
 
-Over the past two years I've gathered a variety of information.  Some of this information is in totality of those two years, most isnt.
+Since August of 2022 I've been recording information about my health.
 * A picture of every meal I've eaten
 * A caption describing the contents of the meal
 * My weight every morning
 * Time and classification of my bowel movements
 * Workouts at my weightlifting gym
 
-This project is the initiative to
-* digitize and clean all the collected data,
-* analyse the data,
-* build models to predict future behavior,
-* streamline the extension of datasets,
-* visualize the data and analysis,
-* and report on what I've learned as a result of analysis.
+This project is the collection, transformation, and analysis of those datasets to understand my health better.
 
 ## Data Pipeline
 
 Raw data will be stored external to this repository.
 
-1) Each data source is individually pulled into `cleaned` after being cleaned _individually_.
+1) Each data source is pulled into `cleaned` after being cleaned _individually_, isolated from other data sources.
 2) Additional data generated from `cleaned` data is placed into `extended`.
 3) All relevant data in `cleaned` and `extended` is finally joined into `prepared`.
 
@@ -27,17 +21,48 @@ In `prepared` is all the data needed for modeling and visualization.
 
 ## Data Visualization
 
-The goal is to make a dashboard.  I'm going to experiment with some new technology, maybe.
+A dashboard is created using plotly/dash.
 
-* tabler: a library that can be integrated into an html file to designing a dashboard
-* apexcharts: a plugin for tabler that makes charts, similar to plotly
+# Progress
 
-Unforunately these all are intended for integration into larger web frameworks.  I don't want to dive into that so I'm going to use the most basic templating engine: mustache.
+This is a list of accomplishments and goals.
 
-* mustache: a dead simple templating engine...template + config => output
+## Data Sources
 
-But to be extra difficult I want to still write in toml so
+These are existing data sources that need to be digitized or scraped, and cleaned.
 
-* yj: a converter for json/toml/yaml
+[x] My weight from scale
+[ ] Time weight was taken
+[x] Instagram posts of my food
+[ ] Full photos taken of my food
+[ ] Bowel movements
+[ ] Workouts at weightlifting gym
 
-I create a config in toml and a template file with preprogrammed charts.  But I guess they need data pulled from sqlite dont they?  Then there needs to be more preprocessing anyway, why don't I just use plotly and dash?  yeah, this might be too complicated
+## Data Transformation
+
+This is information that needs to be generated or calculated from existing data sources.
+
+[ ] Meals (photos of food taken within a time interval)
+[ ] Interpolate weight values
+[ ] Average weight across days
+[ ] Clean labels of instagram posts
+[ ] Food classification (desert, bread, meat, vegetables, etc)
+
+## Data Modeling and Visualization
+
+These are stated in the form of questions that I'd like to answer.  These could be answered using a model, a summary statistic, SQL query, or interactive visualization.  These are considered complete when integrated, in some way, into the dashboard.
+
+[ ] How did the number of meals I ate a certain day effect my weight?
+[ ] How did the type of food (meat, vegetable, dairy, etc.) effect my weight?
+[ ] How long did it take me, on average, to post an image to instagram after I took it?
+[ ] What were my most frequent times to eat?
+[ ] When did I fast?
+[ ] How did trips and vacations effect my eating habits and weight?
+
+## Reporting and Blogging
+
+It would be nice to summarize my experience collecting the data, as well as analysing it.  The best medium for me to do this is through my blog.
+
+[ ] My experience with Instagram for posting my meals
+[ ] Effects of fasting
+[ ] Creation of this project
