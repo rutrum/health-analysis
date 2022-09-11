@@ -28,7 +28,7 @@ def main():
     weight = pd.read_sql("""
         select *, date(meals.timestamp, 'unixepoch') as date_formatted from weight
         join (
-            select * from meals
+            select timestamp, sum(total_posts) as total_posts from meals
             group by date(timestamp, 'unixepoch')
         ) as meals
         where date(meals.timestamp, 'unixepoch') == date(weight.date, 'unixepoch')
