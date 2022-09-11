@@ -14,6 +14,7 @@ interpolated_weights = "data/extended/interpolated_weights.csv"
 
 [extend]
 meal_range_minutes = 60
+avg_weight_window = 14
 
 [prepared]
 sqlite = "data/prepared/data.db"

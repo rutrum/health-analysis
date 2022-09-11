@@ -48,6 +48,10 @@ def main():
         fig.add_trace(
             go.Scatter(x=df["date"], y=df["interpolated_weight"], name="Weight (Interpolated)")
         )
+        avg_days = config["extend"]["avg_weight_window"]
+        fig.add_trace(
+            go.Scatter(x=df["date"], y=df["average_weight"], name=f"{avg_days} day average")
+        )
         fig.add_trace(
             go.Scatter(x=df["date"], y=df["weight"], name="Weight", visible='legendonly')
         )

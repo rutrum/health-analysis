@@ -10,6 +10,7 @@ SELECT
   date(weight.date, 'unixepoch') AS date,
   weight.weight AS weight,
   weight.interpolated AS interpolated_weight,
+  weight.average AS average_weight,
   COUNT(post.id) AS total_posts
 FROM weight
 LEFT JOIN post

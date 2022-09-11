@@ -44,7 +44,7 @@ This is information that needs to be generated or calculated from existing data 
 
 - [ ] Meals (photos of food taken within a time interval)
 - [x] Interpolate weight values
-- [ ] Average weight across days
+- [x] Average weight across days
 - [ ] Clean labels of instagram posts
 - [ ] Food classification (desert, bread, meat, vegetables, etc)
 
