@@ -34,8 +34,8 @@ These are existing data sources that need to be digitized or scraped, and cleane
 - [x] My weight from scale
 - [ ] Time weight was taken
 - [x] Instagram posts of my food
-- [ ] Full photos taken of my food
-- [ ] Metadata of photos taken of my food
+- [x] Full photos taken of my food
+- [x] Metadata of photos taken of my food
 - [ ] Bowel movements
 - [ ] Workouts at weightlifting gym
 
