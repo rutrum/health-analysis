@@ -57,7 +57,7 @@ def main():
         )
 
         fig.add_trace(
-            go.Bar(x=df["date"], y=df["total_posts"], name="Total Posts"),
+            go.Bar(x=df["date"], y=df["total_images"], name="Total Images"),
             secondary_y = True,
         )
 

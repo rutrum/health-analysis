@@ -6,6 +6,7 @@ all:
 clean:
     python3 src/clean/instagram.py
     python3 src/clean/weights.py
+    python3 src/clean/food_pictures.py
 
 extend:
     python3 src/extend/meals.py

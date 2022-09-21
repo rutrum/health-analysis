@@ -1,11 +1,13 @@
 [sources]
 instagram = "/mnt/barracuda/social_media_dumps/instagram_dave_holds_himself_accountable"
 weights = "/mnt/barracuda/data/weights.ods"
+food_images = "/mnt/barracuda/data/food_images"
 
 [cleaned]
 instagram_posts = "data/cleaned/posts.csv"
 instagram_pictures = "data/cleaned/pictures.csv"
 weights = "data/cleaned/weights.csv"
+food_images_meta = "data/cleaned/food_images.csv"
 
 [extended]
 meals = "data/extended/meals.csv"

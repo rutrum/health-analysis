@@ -35,6 +35,7 @@ These are existing data sources that need to be digitized or scraped, and cleane
 - [ ] Time weight was taken
 - [x] Instagram posts of my food
 - [ ] Full photos taken of my food
+- [ ] Metadata of photos taken of my food
 - [ ] Bowel movements
 - [ ] Workouts at weightlifting gym
 
@@ -45,8 +46,11 @@ This is information that needs to be generated or calculated from existing data 
 - [ ] Meals (photos of food taken within a time interval)
 - [x] Interpolate weight values
 - [x] Average weight across days
+- [ ] Weight difference between days
+- [ ] Variance of weight across days
 - [ ] Clean labels of instagram posts
 - [ ] Food classification (desert, bread, meat, vegetables, etc)
+- [ ] Match instagram post media with full resolution photos (hard)
 
 ## Data Modeling and Visualization
 

@@ -30,6 +30,9 @@ def main():
     meals_posts = pd.read_csv(config["extended"]["meals_posts"])
     meals_posts.to_sql(name="meals_posts", con=conn, index=False)
 
+    food_pics = pd.read_csv(config["cleaned"]["food_images_meta"])
+    food_pics.to_sql(name="food_images", con=conn, index=False)
+
     # Run arbitrary queries in sql folder to create views
 
     sql_dir = config["prepare"]["sql"]
