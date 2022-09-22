@@ -12,12 +12,8 @@ SELECT
   weight.weight AS weight,
   weight.interpolated AS interpolated_weight,
   weight.average AS average_weight
-  --COUNT(post.id) AS total_posts
+
 FROM weight
-
---LEFT JOIN post
---ON date(weight.date, 'unixepoch') = date(post.timestamp, 'unixepoch')
-
 JOIN food_images
 ON date(weight.date, 'unixepoch') = date(food_images.timestamp, 'unixepoch')
 

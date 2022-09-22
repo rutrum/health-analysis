@@ -4,6 +4,7 @@ import pandas as pd
 import toml
 import sqlite3
 import plotly.graph_objects as go
+import json
 from plotly.subplots import make_subplots
 
 app = Dash(__name__)
@@ -21,6 +22,26 @@ def date_range(df):
         end_date=df["date"].max(),
     )
 
+def dict_to_table(d):
+    rows = []
+    for key, val in d.items():
+        rows.append(html.Tr([
+            html.Th(key),
+            html.Th(val),
+        ]))
+    return html.Table(rows)
+
+def build_summary(daily, date):
+    """ generates some summary html for the given date """
+    row = daily.loc[daily["date"] == date].iloc[0, :].to_dict()
+    data = {
+        "Date": row["date"],
+        "Weight": round(row["interpolated_weight"], 1),
+        "Avg. Weight": round(row["average_weight"], 1),
+        "Images Taken": row["total_images"],
+    }
+    return dict_to_table(data)
+
 def main():
     config = load_config()
 
@@ -30,7 +51,10 @@ def main():
     app.layout = html.Div(children=[
         date_range(daily),
         dcc.Graph(id="daily"),
+        html.Pre(["test"], id="summary"),
     ])
+
+    inspect_date = daily["date"].min()
 
     @app.callback(
         Output("daily", "figure"),
@@ -62,6 +86,15 @@ def main():
         )
 
         return fig
+
+    @app.callback(
+        Output('summary', 'children'),
+        Input('daily', 'clickData')
+    )
+    def display_click_data(click_data):
+        if not click_data: return
+        inspect_date = click_data["points"][0]["x"]
+        return build_summary(daily, inspect_date)
 
     app.run_server(debug=True)
 
